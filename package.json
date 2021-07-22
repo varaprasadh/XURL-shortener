@@ -1,0 +1,33 @@
+{
+   "name": "x-url-shortener",
+   "version": "1.0.0",
+   "description": "",
+   "main": "src/index.js",
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "dev": "nodemon src/index.ts",
+      "build": "tsc -p .",
+      "test": "echo 'add jest'",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+   },
+   "keywords": [],
+   "author": "varaprasadh",
+   "license": "ISC",
+   "devDependencies": {
+      "@types/cors": "^2.8.10",
+      "@types/express": "^4.16.1",
+      "@types/node": "^8.0.29",
+      "nodemon": "^2.0.7",
+      "ts-node": "3.3.0",
+      "tslint": "^5.12.1",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.16.4",
+      "nanoid": "^3.1.20",
+      "pg": "^8.4.0",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.31"
+   }
+}

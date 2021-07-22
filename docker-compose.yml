@@ -1,0 +1,40 @@
+version: '3.7'
+
+services: 
+    xus: 
+        build: 
+            context: ./
+            dockerfile: Dockerfile
+            target: base
+        volumes: 
+            - ./src:/home/app/src/
+            - ./nodemon.json:/home/app/nodemon.json  
+        container_name: xus_server
+        image: xus_server
+        environment: 
+            PORT : "3000"
+        networks: 
+            - xus_net
+        expose:
+            - "3000"
+        ports: 
+            - 3000:3000
+        depends_on: 
+            - xus_db
+        command: npm run dev
+    xus_db:
+        image: "postgres:9.6.1"
+        ports: 
+            - 3001:5432
+        networks: 
+            - xus_net
+        environment:
+            POSTGRES_USER: "postgres"
+            POSTGRES_PASSWORD: "postgres"
+            POSTGRES_DB: "xus-db"
+
+        # volumes: 
+        #     - ./data/xus_data/:/var/lib/postgresql/data  
+networks: 
+    xus_net: 
+        driver: bridge

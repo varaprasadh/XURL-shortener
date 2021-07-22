@@ -1,0 +1,7 @@
+version: '3.7'
+
+services: 
+    xus: 
+        build: 
+            target: production
+        command: node build/index.js
